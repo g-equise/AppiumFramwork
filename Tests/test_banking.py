@@ -20,7 +20,7 @@ class Testbanking(unittest.TestCase):
 
     def test_add_credit_card(self):
         Login.loginAudience(self)
-        Banking.enterBanking(self)
+        Banking.addNewCard(self)
 
 #AGREGAR TARJETAS.
 
