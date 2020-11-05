@@ -37,7 +37,7 @@ class Banking(object):
         return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.BTN_ADD)).click()
 
     def addNumberCard(self, card_supported):
-        return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.FLD_NUMBER_CARD)).send_keys(CardSupported)
+        return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.FLD_NUMBER_CARD)).send_keys(randomcard())
 
     def addExpDate(self, expiration_date):
         return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.FLD_EXPIRATION_DATE)).send_keys(expiration_date)
