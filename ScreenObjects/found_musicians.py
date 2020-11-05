@@ -61,7 +61,7 @@ class Found_musicians(object):
         found_mus.click_found()
         found_mus.click_access_location()
         time.sleep(2)
-        #found_mus.click_axel()
-        #found_mus.click20()
-        #found_mus.clickPayTips()
+        found_mus.click_axel()
+        found_mus.click20()
+        found_mus.clickPayTips()
 
