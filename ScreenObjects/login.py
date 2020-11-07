@@ -13,8 +13,6 @@ class Login(object):
         self.FLD_NUMBER = (By.CLASS_NAME, 'android.widget.EditText')
         self.BTN_CONTINUE = (By.CLASS_NAME, 'android.view.View')
 
-    # def load(self):
-    #     self.driver.get()
 
     def setUserNumber(self, numberDefault):
         return wd(self.driver, self.timeout).until(EC.element_to_be_clickable(self.FLD_NUMBER)).send_keys(numberDefault)
@@ -29,7 +27,6 @@ class Login(object):
 
 #Agregar la función login.
     def loginAudience(self):
-        #self.load()
         self.setUserNumber(numberDefault)
         self.clickContinue()
         self.setUserCode(smsCode)

@@ -18,14 +18,10 @@ class Testfoundmusicians(unittest.TestCase):
         self.lg = Login(self.appium.get_driver())
         self.found = Found_musicians(self.appium.get_driver())
 
-    def tearDown(self):
-        self.appium.close_driver()
 
     def test_fmusicians(self):
-        self.setUp()
         self.lg.loginAudience()
         self.found.pay_Tips()
+        self.appium.close_driver()
 
-
-#AGREGAR TARJETAS.
 

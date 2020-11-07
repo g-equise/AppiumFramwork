@@ -16,11 +16,16 @@ class Testbanking(unittest.TestCase):
         self.lg = Login(self.appium.get_driver())
         self.bank = Banking(self.appium.get_driver())
 
+    # def tearDown(self):
+    #     self.appium.close_driver()
 
-    def tearDown(self):
-        self.appium.close_driver()
+    #def tearDown(self):
+    #    self.appium.close_driver()
 
     def test_add_credit_card(self):
-        self.setUp()
         self.lg.loginAudience()
         self.bank.addNewCard()
+        self.appium.close_driver()
+
+
+# AGREGAR REMPLAZAR Y DEFAULT

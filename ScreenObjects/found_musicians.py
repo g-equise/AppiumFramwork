@@ -43,15 +43,15 @@ class Found_musicians(object):
         return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.BTN_PAY_TIPS)).click()
 
     def clickLocation_Using_App(self):
-        time.sleep(3)
+        time.sleep(1)
         return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.BTN_ACCESS_LOCATION_USING_APP)).click()
 
     def clickLocation_Using_This_Time(self):
-        time.sleep(3)
+        time.sleep(1)
         return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.BTN_ACCESS_LOCATION_USING_THIS_TIME)).click()
 
     def clickLocation_Deny(self):
-        time.sleep(3)
+        time.sleep(1)
         return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.BTN_ACCESS_LOCATION_DENY)).click()
 
 #Agregar la función login.
@@ -60,7 +60,7 @@ class Found_musicians(object):
         found_mus.click_give_tips()
         found_mus.click_found()
         found_mus.click_access_location()
-        time.sleep(2)
+        time.sleep(1)
         found_mus.click_axel()
         found_mus.click20()
         found_mus.clickPayTips()
