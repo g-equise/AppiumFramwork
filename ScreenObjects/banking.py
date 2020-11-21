@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait as wd
 from selenium.webdriver.support import expected_conditions as EC
 from data.config.config import *
-from data.config.resources import randomcard, card_used
+from data.config.resources import random_card, last4dig, number_card, cvc_card
 
 
 class Banking(object):
@@ -19,7 +19,9 @@ class Banking(object):
         self.FLD_EXPIRATION_DATE = (By.XPATH, "//android.widget.EditText[@text='MM/YY']")
         self.FLD_CVC = (By.XPATH, "//android.widget.EditText[@text='CVC']")
         self.BTN_ADD_CARD = (By.XPATH, "//android.widget.TextView[@text='Add card']")
-        self.FLD_SELECT_CARDS = (By.XPATH, "//android.widget.TextView[@text='**** 4444']")
+        # self.FLD_SELECT_CARDS = (By.XPATH, "//android.widget.TextView[@text='**** 4444']")
+        # self.FLD_SELECT_CARDS = (By.XPATH, '//android.widget.TextView[@text=' + '**** ' + last4dig + ']')
+        self.FLD_SELECT_CARDS = (By.XPATH, '//android.widget.TextView[@text=' + last4dig + ']')
         #        self.FLD_SELECT_CARDS = (By.XPATH, '//android.widget.TextView[@text=' + str(cardselected) + ']')
         self.BTN_REMOVE_CARD = (By.XPATH, "//android.widget.TextView[@text='Remove card']")
         self.BTN_CANCEL_CONFIRMATION = (By.ID, "android:id/button2")
@@ -37,15 +39,17 @@ class Banking(object):
         time.sleep(1)
         return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.BTN_ADD)).click()
 
-    def addNumberCard(self, card):
-        return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.FLD_NUMBER_CARD)).send_keys(card)
+    def addNumberCard(self):
+        print(number_card)
+        return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.FLD_NUMBER_CARD)).send_keys(
+            number_card)
 
     def addExpDate(self):
         return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.FLD_EXPIRATION_DATE)).send_keys(
             "01/25")
 
     def addCVC(self):
-        return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.FLD_CVC)).send_keys("123")
+        return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.FLD_CVC)).send_keys(cvc_card)
 
     def btn_AddCard(self):
         return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.BTN_ADD_CARD)).click()
@@ -58,7 +62,8 @@ class Banking(object):
     #     return choice.text
 
     def select_card(self):
-       return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.FLD_SELECT_CARDS)).click()
+        print("ESO", self.FLD_SELECT_CARDS)
+        return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.FLD_SELECT_CARDS)).click()
 
     def remove_card(self):
         return wd(self.driver, self.timeout).until(EC.element_to_be_clickable(self.BTN_REMOVE_CARD)).click()
@@ -77,14 +82,13 @@ class Banking(object):
         banking.clickAdd()
         time.sleep(1)
         banking.btn_AddCard()
-        banking.addNumberCard(CardSupported)
+        banking.addNumberCard()
         banking.addExpDate()
         banking.addCVC()
         banking.btn_AddCard()
         banking.select_card()
         banking.remove_card()
         banking.confirmation_btn_cancel()
-        banking.select_card()
         banking.remove_card()
         banking.confirmation_btn_confirm()
         time.sleep(2)
