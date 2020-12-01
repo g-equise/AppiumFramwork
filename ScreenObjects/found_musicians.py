@@ -20,6 +20,7 @@ class Found_musicians(object):
         self.BTN_ACCESS_LOCATION = (By.ID, 'com.android.packageinstaller:id/permission_allow_button')
         self.BTN_ACCESS_LOCATION_USING_THIS_TIME = (By.ID, 'com.android.permissioncontroller:id/permission_allow_one_time_button')
         self.BTN_ACCESS_LOCATION_DENY = (By.ID, 'com.android.permissioncontroller:id/permission_deny_button')
+        self.BTN_LINK_CARD = (By.ID, 'android:id/button1')
 
     def click_give_tips(self):
         return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.BTN_GIVE_TIPS)).click()
@@ -28,7 +29,15 @@ class Found_musicians(object):
         return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.BTN_FOUND)).click()
 
     def click_access_location(self):
-        return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.BTN_ACCESS_LOCATION)).click()
+        try:
+            return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.BTN_ACCESS_LOCATION)).click()
+        except Exception as ex:
+            print(ex)
+    def click_link_card(self):
+        try:
+            return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.BTN_LINK_CARD)).click()
+        except Exception as ex:
+            print(ex, "a card was already found")
 
     def click_axel(self):
         return wd(self.driver, self.timeout).until(EC.presence_of_element_located(self.FLD_SELECT_AXEL)).click()
@@ -60,6 +69,7 @@ class Found_musicians(object):
         found_mus.click_give_tips()
         found_mus.click_found()
         found_mus.click_access_location()
+        found_mus.click_link_card()
         time.sleep(1)
         found_mus.click_axel()
         found_mus.click20()
