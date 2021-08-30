@@ -38,7 +38,6 @@ body:
       2. 
       3. 
       ...
-  render: shell
   validations:
     required: true
     
