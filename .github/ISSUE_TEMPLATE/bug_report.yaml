@@ -1,12 +1,11 @@
-name: Report a bug
-about: Report a bug in Afrodita.
-labels: 'bug: unconfirmed'
-inputs:
-- type: description
+name: Bug Report
+descripton: Report a bug you've found
+title: "[BUG]": "
+labels: "bug"
+body: 
   attributes:
     value: |
-      Thanks for taking the time to report an EssentialsX bug! Fill out the form below to provide us with info to help fix the bug.
-      Only use this if you're 100% sure you've found a bug and can reproduce it. If you're looking for general help with EssentialsX, try the Q&A forum or MOSS Discord server.
+      Only use this if you're 100% sure you've found a bug and can reproduce it. If you're looking for general help with APOLO.
 - type: multi_select
   attributes:
     label: Type of bug
