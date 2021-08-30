@@ -13,10 +13,6 @@ body:
     - Chrome
     - Safari
     - Microsoft Edge
-- type: markdown
-  attributes:
-      value: |
-      Thanks for taking the time to fill out this bug report!
 - type: input
   id: description
   attributes:
