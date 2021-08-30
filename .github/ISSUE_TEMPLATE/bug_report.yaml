@@ -1,10 +1,7 @@
 name: Bug Report
 description: File a bug report
 title: "[Bug]: "
-labels: [bug, enhancement, change request]
-assignees:
-- DEV
-- QA
+labels: [bug]
 body:
 - type: dropdown
   id: browsers
@@ -18,8 +15,6 @@ body:
     - Microsoft Edge
 - type: markdown
   attributes:
-    value: |
-      Thanks for taking the time to fill out this bug report!
 - type: input
   id: description
   attributes:
