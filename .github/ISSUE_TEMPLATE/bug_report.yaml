@@ -18,7 +18,7 @@ body:
   attributes:
     label: Description
     description: A detailed description of the bug
-    placeholder: ex. email@example.com
+    placeholder: ex. Login Page | User cannot login
   validations:
     required: false
 - type: textarea
